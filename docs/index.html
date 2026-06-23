@@ -72,7 +72,7 @@
     --font-strong: 700;
     --body-font-size: 1.0625rem;   /* ~17px, Bilibili-style */
     --body-line-height: 1.9;       /* Bilibili column style */
-    --sidebar-width: 280px;
+    --sidebar-width: 320px;
 }
 
 * {
@@ -159,13 +159,13 @@ body {
 /* Sidebar TOC styles */
 .sidebar #TOC {
     font-family: "Noto Serif SC", "Songti SC", "SimSun", "宋体", serif;
-    font-size: 12px;
+    font-size: 11px;
     margin: 0;
     padding: 0;
 }
 
 .sidebar #TOC > h2 {
-    display: none; /* hide the "目录" heading from Pandoc, we use .sidebar-title */
+    display: none;
 }
 
 .sidebar #TOC ul {
@@ -177,12 +177,12 @@ body {
 
 .sidebar #TOC li {
     position: relative;
-    padding: 5px 0 5px 16px;
+    padding: 4px 0 4px 14px;
     cursor: pointer;
     border-radius: 4px;
     transition: background 0.15s ease;
-    line-height: 1.4;
-    margin: 1px 0;
+    line-height: 1.35;
+    margin: 0;
 }
 
 .sidebar #TOC li::before {
@@ -190,18 +190,18 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 4px;
-    width: 4px;
-    height: 4px;
+    left: 3px;
+    width: 3px;
+    height: 3px;
     background: #D977574d;
     border-radius: 50%;
 }
 
 .sidebar #TOC > ul > li::before {
     background: var(--LOGO-color);
-    width: 5px;
-    height: 5px;
-    left: 3px;
+    width: 4px;
+    height: 4px;
+    left: 2px;
 }
 
 .sidebar #TOC li:hover {
@@ -212,27 +212,31 @@ body {
     background: var(--LOGO-color);
 }
 
-.sidebar #TOC a {
+.sidebar #TOC a,
+.sidebar #TOC a:link,
+.sidebar #TOC a:visited,
+.sidebar #TOC a:hover,
+.sidebar #TOC a:active {
     color: var(--sidebar-font-color);
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 400;
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .sidebar #TOC > ul > li > a {
     font-weight: 700;
-    font-size: 12.5px;
+    font-size: 12px;
     color: #3d3d3a;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .sidebar #TOC a:hover {
     color: var(--font-color);
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .sidebar #TOC ul ul {
@@ -261,6 +265,7 @@ body {
     min-width: 0;
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 main {
@@ -268,6 +273,8 @@ main {
     width: 100%;
     max-width: 720px;
     padding: 2.5rem 2rem 5rem 2rem;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 /* ============ ARTICLE TITLE ============ */
@@ -485,6 +492,9 @@ figure {
     margin: 1rem 0;
     padding: 0;
     text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 figure img {
@@ -493,6 +503,7 @@ figure img {
     width: auto !important;
     display: block;
     margin: 0 auto;
+    object-fit: contain;
 }
 
 figcaption {
@@ -503,6 +514,8 @@ figcaption {
     margin-top: 0.4rem;
     padding: 0 1rem;
     text-align: center;
+    max-width: 100%;
+    word-break: break-all;
 }
 
 /* Standalone images (not in figure — images without alt text) */
@@ -512,6 +525,7 @@ p > img:only-child {
     height: auto !important;
     width: auto !important;
     margin: 1rem auto;
+    object-fit: contain;
 }
 
 /* ============ TABLES ============ */
@@ -583,9 +597,9 @@ main > nav#TOC {
 
 /* ============ RESPONSIVE ============ */
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
     .sidebar {
-        display: none;  /* Hide sidebar on narrow screens */
+        display: none;
     }
     .main-area {
         margin-left: 0;
