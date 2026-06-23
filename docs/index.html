@@ -265,7 +265,6 @@ body {
     min-width: 0;
     display: flex;
     justify-content: center;
-    overflow-x: hidden;
 }
 
 main {
@@ -273,8 +272,8 @@ main {
     width: 100%;
     max-width: 720px;
     padding: 2.5rem 2rem 5rem 2rem;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* ============ ARTICLE TITLE ============ */
@@ -493,17 +492,14 @@ figure {
     padding: 0;
     text-align: center;
     max-width: 100%;
-    overflow: hidden;
     box-sizing: border-box;
 }
 
 figure img {
     max-width: 100% !important;
     height: auto !important;
-    width: auto !important;
     display: block;
     margin: 0 auto;
-    object-fit: contain;
 }
 
 figcaption {
@@ -514,8 +510,6 @@ figcaption {
     margin-top: 0.4rem;
     padding: 0 1rem;
     text-align: center;
-    max-width: 100%;
-    word-break: break-all;
 }
 
 /* Standalone images (not in figure — images without alt text) */
@@ -523,9 +517,13 @@ p > img:only-child {
     display: block;
     max-width: 100% !important;
     height: auto !important;
-    width: auto !important;
     margin: 1rem auto;
-    object-fit: contain;
+}
+
+/* Ensure ALL images everywhere stay within bounds */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* ============ TABLES ============ */
@@ -650,6 +648,7 @@ main > nav#TOC {
 <div class="layout">
     <aside class="sidebar">
         <div class="sidebar-title">目录</div>
+        <nav id="TOC">
                 <ul>
                 <li><a href="#前言省流"
                 id="toc-前言省流">前言（省流）</a></li>
@@ -694,7 +693,8 @@ main > nav#TOC {
                 关于反镜像世界的狂想</a></li>
                 </ul></li>
                 </ul>
-            </aside>
+                </nav>
+    </aside>
     <div class="main-area">
         <main>
             <h1 class="article-title">镜像的世界：关于巴黎叙事中刘国梁形象的断想</h1>
