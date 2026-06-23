@@ -72,7 +72,7 @@
     --font-strong: 700;
     --body-font-size: 1.0625rem;   /* ~17px, Bilibili-style */
     --body-line-height: 1.9;       /* Bilibili column style */
-    --sidebar-width: 240px;
+    --sidebar-width: 280px;
 }
 
 * {
@@ -158,8 +158,8 @@ body {
 
 /* Sidebar TOC styles */
 .sidebar #TOC {
-    font-family: var(--font-sans);
-    font-size: 13px;
+    font-family: "Noto Serif SC", "Songti SC", "SimSun", "宋体", serif;
+    font-size: 12px;
     margin: 0;
     padding: 0;
 }
@@ -220,16 +220,19 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 12px;
 }
 
 .sidebar #TOC > ul > li > a {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 12.5px;
     color: #3d3d3a;
+    text-decoration: none;
 }
 
 .sidebar #TOC a:hover {
     color: var(--font-color);
+    text-decoration: none;
 }
 
 .sidebar #TOC ul ul {
@@ -485,8 +488,9 @@ figure {
 }
 
 figure img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
     display: block;
     margin: 0 auto;
 }
@@ -504,8 +508,9 @@ figcaption {
 /* Standalone images (not in figure — images without alt text) */
 p > img:only-child {
     display: block;
-    max-width: 100%;
-    height: auto;
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
     margin: 1rem auto;
 }
 
